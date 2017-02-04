@@ -1,2 +1,1 @@
-# leetcode
-刷起
+# My leetcode solution
