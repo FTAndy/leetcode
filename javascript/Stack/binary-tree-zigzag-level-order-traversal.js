@@ -25,26 +25,18 @@ var zigzagLevelOrder = function(root) {
             nextLevel = []
         }
         while (curLevel.length > 0) {
+            let node = curLevel.shift()
+            result[i] = result[i] || []
+            if (node.left) {
+                nextLevel.push(node.left)
+            }
+            if (node.right) {
+                nextLevel.push(node.right)
+            }
             if (i % 2 == 0) {
-                let node = curLevel.shift()
-                result[i] = result[i] || []
                 result[i].push(node.val)
-                if (node.left) {
-                    nextLevel.push(node.left)
-                }
-                if (node.right) {
-                    nextLevel.push(node.right)
-                }
             } else {
-                let node = curLevel.shift()
-                result[i] = result[i] || []
                 result[i].unshift(node.val)
-                if (node.left) {
-                    nextLevel.push(node.left)
-                }
-                if (node.right) {
-                    nextLevel.push(node.right)
-                }
             }
         }
     }
